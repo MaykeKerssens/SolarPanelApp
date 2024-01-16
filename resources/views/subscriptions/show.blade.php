@@ -28,8 +28,6 @@
             <h3>Zonne panelen</h3>
             @livewire('panel-switcher', ['subscription' => $subscription])
 
-            {{-- @livewire('testje') --}}
-
         </div>
 
 

@@ -17,14 +17,14 @@ class Form extends Component
         ]);
 
         // send mail here....
-
-
-        // success message
-        session()->flash('message', 'Je bericht is verzonden!');
+        Mail::to('infor@solarpanelapp.nl')->send(new \App\Mail\ContactForm($this->email, $this->remarks));
 
         // reset input fields
         $this->email = '';
         $this->remarks = '';
+
+        // success message
+        session()->flash('message', 'Je bericht is verzonden!');
     }
 
     public function render()

@@ -15,14 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/subscriptions', function () {
     $subscriptions = Subscription::all();
-    return view('welcome', [
+    return view('subscriptions.index', [
         'subscriptions' => $subscriptions,
     ]);
 });
 
 Route::get('/subscriptions/{subscription}', function (Subscription $subscription) {
-    return view('subscription', [
+    return view('subscriptions.show', [
         'subscription' => $subscription,
     ]);
 })->name('subscription');
