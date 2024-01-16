@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\SolarPanelSystem;
 use App\Models\Subscription;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,6 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $user = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@solarpanelapp.nl',
+            'password' => bcrypt('password'),
+        ]);
         // faker
         $faker = \Faker\Factory::create();
         // create customers
